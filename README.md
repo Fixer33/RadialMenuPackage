@@ -17,7 +17,7 @@ The **RadialMenuBuilder** class provides an intuitive way to create radial menus
 ### Example Usage
 ```csharp
 _radialMenu = RadialMenuBuilder
-    .Create(_items) // Define menu items
+    .Create(_panelSettings, _items) // Define panel settings (null uses the default) and menu items
     .WithVisibilityAnimationTime(0.1f) // Set animation time
     .WithMainOuterRadius(236, 240) // Define outer radius
     .WithMainInnerRadius(150, 160) // Define inner radius
@@ -27,7 +27,7 @@ _radialMenu = RadialMenuBuilder
 ```
 
 ### Notable Methods
-- `Create(params IRadialMenuItem[] items)`: Initializes the builder with menu items.
+- `Create(PanelSettings panelSettings, IRadialMenuItem[] items)`: Initializes the builder with panel settings and menu items.
 - `Build<T>() where T : IRadialMenu, new()`: Constructs the radial menu.
 - `WithMainOuterRadius(int radius, int highlightedElementRadius)`: Sets the outer radius.
 - `WithMainInnerRadius(int radius, int highlightedElementRadius)`: Sets the inner radius.
@@ -42,6 +42,10 @@ To install the sample:
 1. Open **Package Manager** in Unity.
 2. Find **Radial Menu** in the list.
 3. Click **Samples** and import the "Rust Upgrade Menu".
+
+## Documentation
+- [Package Description](Documentation/Package%20Description.md)
+- [Open Questions](Documentation/Open%20Questions.md)
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

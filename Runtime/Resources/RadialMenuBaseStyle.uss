@@ -9,3 +9,19 @@
     justify-content: center;
     align-items: center;
 }
+/* Design tokens. Segment fills/strokes are painted in C# (RadialMenuBuilder defaults):
+   normal --bg-raised + --border-default, hovered --accent, center --bg-overlay + --border-strong. */
+:root {
+  --bg-base:#0F1115; --bg-surface:#171A21; --bg-raised:#1E222B; --bg-overlay:#272C37; --bg-hover:#2E3441;
+  --border-subtle:#262B35; --border-default:#343B49; --border-strong:#475066;
+  --text-primary:#E8ECF3; --text-secondary:#A3ACBD; --text-muted:#6F7889; --text-on-accent:#FFFFFF;
+  --accent:#3B82F6; --accent-hover:#5B9BFF; --accent-pressed:#2B6AD8; --accent-subtle:#1B2A47; --accent-border:#2F5FB3;
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px; --space-6:32px;
+  --radius-sm:6px; --radius-md:10px; --radius-lg:14px;
+}
+
+#radial-menu-element Label {
+    color: var(--text-primary);
+    font-size: 14px;
+    -unity-font-style: bold;
+}

@@ -9,6 +9,12 @@ namespace RadialMenu
     public class RadialMenuBuilder
     {
         private readonly RadialMenuSettings _settings;
+        // Design tokens (see RadialMenuBaseStyle.uss)
+        private static readonly Color BgRaised = new Color32(0x1E, 0x22, 0x2B, 0xFF);
+        private static readonly Color BgOverlay = new Color32(0x27, 0x2C, 0x37, 0xFF);
+        private static readonly Color BorderDefault = new Color32(0x34, 0x3B, 0x49, 0xFF);
+        private static readonly Color BorderStrong = new Color32(0x47, 0x50, 0x66, 0xFF);
+        private static readonly Color Accent = new Color32(0x3B, 0x82, 0xF6, 0xFF);
         private PanelSettings _defaultPanelSettings;
         private PanelSettings _panelSettings;
         private StyleSheet _baseStyleSheet;
@@ -17,9 +23,9 @@ namespace RadialMenu
         {
             _settings = new RadialMenuSettings(items, Vector2.zero, 0, null,
                 100, 90, 100, 90, 0, 1, 1,
-                Color.white, Color.white, Color.white, Color.black, 
-                50, 50, 1, 1, 
-                Color.white, Color.black, Color.white, Color.black, 
+                BgRaised, Accent, BorderDefault, Accent,
+                50, 50, 1, 1,
+                BgOverlay, BgOverlay, BorderStrong, BorderStrong,
                 RadialMenuAction.None, null, 
                 RadialMenuAction.Close, null, 
                 RadialMenuAction.Close, null,

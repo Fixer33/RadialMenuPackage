@@ -22,17 +22,22 @@ namespace Rust_Upgrade_Menu
         
         private void Start()
         {
+            Color textPrimary = new Color32(0xE8, 0xEC, 0xF3, 0xFF);
             _items = new IRadialMenuItem[]
             {
-                new UpgradeOption("Upgrade to wood", "Upgrade the element to wood", _woodSprite, Color.red, Color.white),
-                new UpgradeOption("Upgrade to stone", "Upgrade the element to stone", _stoneSprite, Color.red, Color.white),
-                new UpgradeOption("Upgrade to metal", "Upgrade the element to metal", _metalSprite, Color.red, Color.white),
-                new UpgradeOption("Upgrade to hqm", "Upgrade the element to hqm", _hqmSprite, Color.red, Color.white),
-                new UpgradeOption("Demolish", "Demolish the element", _demolishSprite, Color.red, Color.white),
+                new UpgradeOption("Upgrade to wood", "Upgrade the element to wood", _woodSprite, textPrimary, Color.white),
+                new UpgradeOption("Upgrade to stone", "Upgrade the element to stone", _stoneSprite, textPrimary, Color.white),
+                new UpgradeOption("Upgrade to metal", "Upgrade the element to metal", _metalSprite, textPrimary, Color.white),
+                new UpgradeOption("Upgrade to hqm", "Upgrade the element to hqm", _hqmSprite, textPrimary, Color.white),
+                new UpgradeOption("Demolish", "Demolish the element", _demolishSprite, textPrimary, Color.white),
             };
             
-            Color centerBackground = Color.black;
-            centerBackground.a = 0.1f;
+            // Design tokens: --bg-raised, --border-default, --accent, --bg-overlay, --border-strong
+            Color raised = new Color32(0x1E, 0x22, 0x2B, 0xFF);
+            Color border = new Color32(0x34, 0x3B, 0x49, 0xFF);
+            Color accent = new Color32(0x3B, 0x82, 0xF6, 0xFF);
+            Color centerBackground = new Color32(0x27, 0x2C, 0x37, 0xFF);
+            Color centerStroke = new Color32(0x47, 0x50, 0x66, 0xFF);
             _radialMenu = RadialMenuBuilder
                 .Create(_panelSettings, _items)
                 .WithVisibilityAnimationTime(0.1f)
@@ -40,9 +45,9 @@ namespace Rust_Upgrade_Menu
                 .InScreenPosition(new Vector2(Screen.width * .5f, Screen.height * .5f))
                 .WithMainOuterRadius(236, 240)
                 .WithMainInnerRadius(150, 160)
-                .WithMainColors(Color.white, Color.red, Color.white, Color.red)
-                .WithCenterElementRadius(150)
-                .WithCenterElementColors(centerBackground, centerBackground, centerBackground, centerBackground)
+                .WithMainColors(raised, accent, border, accent)
+                .WithCenterElementRadius(50)
+                .WithCenterElementColors(centerBackground, centerBackground, centerStroke, centerStroke)
                 .WithActionOnClickOutOfBounds(RadialMenuAction.PerformItemAndClose)
                 .Build<ScaledRadialMenu>();
         }

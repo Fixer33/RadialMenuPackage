@@ -9,7 +9,7 @@ To create a radial menu, use the `Create` method and chain configuration methods
 ### Example Usage
 ```csharp
 IRadialMenu radialMenu = RadialMenuBuilder
-    .Create(items) // Define menu items
+    .Create(panelSettings, items) // Define panel settings (null uses the default) and menu items
     .WithVisibilityAnimationTime(0.1f) // Set animation time
     .WithMainOuterRadius(236, 240) // Set main outer radius
     .WithMainInnerRadius(150, 160) // Set main inner radius
@@ -20,8 +20,8 @@ IRadialMenu radialMenu = RadialMenuBuilder
 
 ## Methods
 
-### `Create(params IRadialMenuItem[] items)`
-Creates a new `RadialMenuBuilder` instance with the specified menu items.
+### `Create(PanelSettings panelSettings, IRadialMenuItem[] items)`
+Creates a new `RadialMenuBuilder` instance with the specified panel settings and menu items. If `panelSettings` is null, the package's default panel settings are used.
 
 ### `Build<T>() where T : IRadialMenu, new()`
 Builds and returns an instance of the radial menu with the specified type `T`.
